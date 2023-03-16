@@ -33,6 +33,12 @@ COUNTER=1
 # loop until user finds the right number
   echo -e "\nGuess the secret number between 1 and 1000:"
   read GUESS
+  # test to check if input is integer
+while ! [[ $GUESS =~ ^[0-9]+$ ]]
+do 
+  echo "That is not an integer, guess again:"
+  read GUESS
+done
   
 while [ $GUESS -ne $RANDOM_NUMBER ]
 do
@@ -45,6 +51,12 @@ do
     echo "It's higher than that, guess again:"
   fi
   read GUESS
+  # test to check if input is integer
+  while ! [[ $GUESS =~ ^[0-9]+$ ]]
+  do 
+    echo "That is not an integer, guess again:"
+    read GUESS
+  done
   # increase counter with every attempt
   let COUNTER++
 done
